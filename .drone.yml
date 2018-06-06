@@ -44,13 +44,13 @@ pipeline:
       - /kube:/kube
 
   staging-infra:
-    image: 277866474112.dkr.ecr.us-east-1.amazonaws.com/infra-staging
+    image: coinlion/infra-staging
     pull: true
     environment:
       - HUB_CONFIG=/config/hub
       - KUBECONFIG=/kube/config
       - GITHUB_ACTIVE_ACCOUNT=<GITHUB_ACCOUNT>
-      - AWS_ECR_HOST=277866474112.dkr.ecr.us-east-1.amazonaws.com
+      - AWS_ECR_HOST=<AWS_ECR_HOST>
     when:
       event: [ push ]
       branch:
@@ -98,13 +98,13 @@ pipeline:
       - /kube:/kube
 
   qa-infra:
-    image: 277866474112.dkr.ecr.us-east-1.amazonaws.com/infra-qa
+    image: coinlion/infra-qa
     pull: true
     environment:
       - HUB_CONFIG=/config/hub
       - KUBECONFIG=/kube/config
       - GITHUB_ACTIVE_ACCOUNT=<GITHUB_ACCOUNT>
-      - AWS_ECR_HOST=277866474112.dkr.ecr.us-east-1.amazonaws.com
+      - AWS_ECR_HOST=<AWS_ECR_HOST>
     when:
       event: [ tag ]
     volumes:
