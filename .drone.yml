@@ -29,7 +29,7 @@ pipeline:
   staging-kubectl:
     image: coinlion/kops
     commands:
-      - kops export kubecfg dev.coinlion.io
+      - kops export kubecfg staging
       - kubectl cluster-info
     environment:
       - KUBECONFIG=/kube/config
@@ -85,7 +85,7 @@ pipeline:
   qa-kubectl:
     image: coinlion/kops
     commands:
-      - kops export kubecfg qa.coinlion.io
+      - kops export kubecfg qa
       - kubectl cluster-info
     environment:
       - KUBECONFIG=/kube/config
